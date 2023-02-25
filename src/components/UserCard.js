@@ -1,15 +1,15 @@
 import React from "react";
 
-function UserCard({users}){
+function UserCard({user}){
     // const {name} = user.name
-    console.log("from card")
-    console.log(users)
+    // console.log("from card")
+    // console.log(users)
+    
     return (
-        <li>
-            {/* <h2>{users.name}</h2> */}
-
+        <div>
             <h1>UserCard Component</h1>
-        </li>
+            <h3>user name: {user.name}</h3>
+        </div>
     )
 }
 
