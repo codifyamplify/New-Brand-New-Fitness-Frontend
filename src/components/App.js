@@ -15,6 +15,9 @@ function App() {
     // write state setter to filter users array upon user deletion, start with a console.log
     function handleDeleteUser(id){
       console.log(`I am in App, in handleDeleteUser, with an id of ${id}`)
+      // write actual state setter, filter users state
+      const usersAfterDelete = users.filter((user) => user.id !== id)
+      setUsers(usersAfterDelete)
     }
   return (
     <div className="App">
