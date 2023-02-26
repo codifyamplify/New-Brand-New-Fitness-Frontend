@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import '../App.css';
 // import UserCard from './UserCard';
 import UsersList from './UsersList';
+import NewUser from './NewUser';
 
 function App() {
   // create state for master users database state
@@ -23,6 +24,7 @@ function App() {
     <div className="App">
       {/* className="App-header" for dark blue background */}
       <h1>Brand New Fitness App</h1>
+      <NewUser users={users}/>
       <UsersList 
         users={users}
         onDeleteUser={handleDeleteUser}

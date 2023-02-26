@@ -16,8 +16,8 @@ function UserCard({user, onDeleteUser}){
     
     return (
         <div>
-            <h1>UserCard Component</h1>
-            <h3>user name: {user.name}</h3>
+            <h3>UserCard Component</h3>
+            <h4>user name: {user.name}</h4>
             <ul>{exercises}</ul>
             <button onClick={handleDeleteClick}>Delete User</button>
         </div>

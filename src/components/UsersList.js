@@ -7,6 +7,7 @@ function UsersList({users, onDeleteUser}){
     // create variable with value of map of users
     const usersGroup = users.map((user) => 
         <UserCard 
+            // a key value is needed when mapping
             key={user.id}
             user={user}
             onDeleteUser={onDeleteUser}
