@@ -22,9 +22,10 @@ function App() {
     }
 
     function handleAddUser(newUserName){
-      console.log("im adding a new new user")
-      setUsers([...users], newUserName)
+      // console.log("im adding a new new user")
+      setUsers([...users, newUserName])
     }
+
   return (
     <div className="App">
       {/* className="App-header" for dark blue background */}

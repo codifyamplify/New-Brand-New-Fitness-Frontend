@@ -15,22 +15,24 @@ function NewUser({onAddUser}){
                 "Content-type": "application/json",
             },
             body: JSON.stringify({
-                username: newUserName,
+                name: newUserName,
             }),
         })
         .then((response) => response.json())
-        .then((newUser) => {
-            setNewUserName(newUser)
+        .then((newUserName) => {
+            onAddUser(newUserName)
+            setNewUserName("")
+            console.log(newUserName)
             
         });
     }
     return (
         <div>
-            <h1>New User Component</h1>
-            <form onChange={handleSubmit}>
+            <h3>Add New User</h3>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    name="userNameField"
+                    name="newUserName"
                     // after you create state for this form, add state name to value field
                     value={newUserName}
                     // add state setter here, may be onChange
