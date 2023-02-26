@@ -1,12 +1,14 @@
 import React from "react";
 
-function UserCard({user}){
+function UserCard({user, onDeleteUser}){
     // write delete user handler - this will be the fetch request NOT the state update
     function handleDeleteClick(){
         fetch(`http://localhost:9292/users/${user.id}`, {
             method: "DELETE",
         });
-        console.log(`${user.name} was deleted`)
+        // state setter prop goes here
+        // console.log(`${user.name} was deleted`)
+        onDeleteUser(user.id)
     }
     // const {name} = user.name
     // console.log("from card")

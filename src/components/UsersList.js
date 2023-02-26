@@ -1,7 +1,7 @@
 import React from "react";
 import UserCard from "./UserCard";
 
-function UsersList({users}){
+function UsersList({users, onDeleteUser}){
     // console.log("from list")
     // console.log(users)
     // create variable with value of map of users
@@ -9,7 +9,7 @@ function UsersList({users}){
         <UserCard 
             key={user.id}
             user={user}
-               
+            onDeleteUser={onDeleteUser}
         />)
     return (
         <div>

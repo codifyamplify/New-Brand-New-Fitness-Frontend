@@ -12,13 +12,17 @@ function App() {
       .then((response) => response.json())
       .then((users) => setUsers(users));
     }, [])
+    // write state setter to filter users array upon user deletion, start with a console.log
+    function handleDeleteUser(id){
+      console.log(`I am in App, in handleDeleteUser, with an id of ${id}`)
+    }
   return (
     <div className="App">
       {/* className="App-header" for dark blue background */}
       <h1>Brand New Fitness App</h1>
       <UsersList 
         users={users}
-
+        onDeleteUser={handleDeleteUser}
       />
     </div>
   );
