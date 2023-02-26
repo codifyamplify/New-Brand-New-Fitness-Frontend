@@ -14,7 +14,7 @@ function UsersList({users, onDeleteUser}){
         />)
     return (
         <div>
-            <h1>UsersList Component</h1>
+            <h3>Existing Users</h3>
             {/* <UserCard users={users}/> */}
             {usersGroup}
         </div>
