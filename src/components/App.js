@@ -20,11 +20,16 @@ function App() {
       const usersAfterDelete = users.filter((user) => user.id !== id)
       setUsers(usersAfterDelete)
     }
+
+    function handleAddUser(newUserName){
+      console.log("im adding a new new user")
+      setUsers([...users], newUserName)
+    }
   return (
     <div className="App">
       {/* className="App-header" for dark blue background */}
       <h1>Brand New Fitness App</h1>
-      <NewUser users={users}/>
+      <NewUser onAddUser={handleAddUser}/>
       <UsersList 
         users={users}
         onDeleteUser={handleDeleteUser}
