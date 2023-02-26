@@ -16,7 +16,10 @@ function App() {
     <div className="App">
       {/* className="App-header" for dark blue background */}
       <h1>Brand New Fitness App</h1>
-      <UsersList users={users}/>
+      <UsersList 
+        users={users}
+
+      />
     </div>
   );
 }

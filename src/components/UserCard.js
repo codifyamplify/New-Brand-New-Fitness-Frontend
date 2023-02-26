@@ -1,8 +1,12 @@
 import React from "react";
 
 function UserCard({user}){
+    // write delete user handler - this will be the fetch request NOT the state update
     function handleDeleteClick(){
-        console.log(`${user.name} was clicked`)
+        fetch(`http://localhost:9292/users/${user.id}`, {
+            method: "DELETE",
+        });
+        console.log(`${user.name} was deleted`)
     }
     // const {name} = user.name
     // console.log("from card")
