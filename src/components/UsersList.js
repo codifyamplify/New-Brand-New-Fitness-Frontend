@@ -1,16 +1,21 @@
 import React from "react";
 import UserCard from "./UserCard";
 
-function UsersList({users, onDeleteUser}){
+function UsersList({users, onDeleteUser, onDeleteExercise, exercisesState}){
     // console.log("from list")
     // console.log(users)
     // create variable with value of map of users
+    // create a filter for exercise state and store in variable
+
+
     const usersGroup = users.map((user) => 
         <UserCard 
             // a key value is needed when mapping
             key={user.id}
             user={user}
             onDeleteUser={onDeleteUser}
+            exercisesState={exercisesState}
+            onDeleteExercise={onDeleteExercise}
         />)
     return (
         <div>

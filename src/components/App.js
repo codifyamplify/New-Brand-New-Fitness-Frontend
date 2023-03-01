@@ -34,16 +34,32 @@ function App() {
     }
 
     function handleDeleteExercise(id){
-      // const exercisesAfterDelete = exercisesState.filter((exerciseState) => exerciseState.id !== id)
       // setExercisesState(exercisesAfterDelete)
-      console.log("anything from app")
+      console.log(`I am in App.js, in handleDeleteExercise, with an ID of ${id}`)
+      // write exercises filtering then set state
+      const exercisesAfterDelete = exercisesState.filter((exerciseState) => exerciseState.id !== id)
+      setExercisesState(exercisesAfterDelete)
     }
 
     function handleAddUser(newUserName){
       // console.log("im adding a new new user")
       setUsers([...users, newUserName])
     }
+    
 
+const boop = 4
+// console.log("filter attempt")
+    // EXPERIMENTS
+    // console.log(
+    //   exercisesState.filter((exerciseState) => exerciseState.user_id === boop)
+    //   )
+
+    // const filteredExercises = exercisesState.filter((exerciseState) =>
+    //   exerciseState.user_id === boop
+    // )
+
+    // console.log("filter in app")
+    // console.log(filteredExercises)
   return (
     <div className="App">
       {/* className="App-header" for dark blue background */}
@@ -53,7 +69,7 @@ function App() {
         users={users}
         onDeleteUser={handleDeleteUser}
         onDeleteExercise={handleDeleteExercise}
-        exerciseState={exercisesState}
+        exercisesState={exercisesState}
       />
       <ExercisesList 
         users={users}

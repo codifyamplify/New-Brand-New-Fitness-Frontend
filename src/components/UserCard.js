@@ -1,51 +1,54 @@
 import React from "react";
+import Exercise from "./Exercise";
 
-function UserCard({user, onDeleteUser}){
+function UserCard({user, onDeleteUser, onDeleteExercise, exercisesState}){
     // write delete user handler - this will be the fetch request NOT the state update
-    function handleDeleteClick(){
+    function handleDeleteUserClick(){
         fetch(`http://localhost:9292/users/${user.id}`, {
             method: "DELETE",
         });
-        // state setter prop goes here
-        // console.log(`${user.name} was deleted`)
         onDeleteUser(user.id)
     }
-    // const {name} = user.name
-    // console.log("from card")
-    // const exercises = user.exercises.map((exercise) => <li key={exercise.id}>{JSON.stringify(exercise)}</li>)
-    
+    // function handleDeleteExerciseClick(key){
+    //     // fetch(`http://localhost:9292/exercises/${user.exercises.id}`, {
+    //     //     method: "DELETE",
+    //     // })
+    //     // onDeleteExercise(exerciseState.id)
+    //     console.log(key.id)
+    // }
+    // map over exercises state, compare user_id to user.id
+    // const filteredExercises = exercisesState.filter((exerciseState) => exerciseState.user_id === user.id)
+    // const ideez = exercisesState.filter(exerciseState => console.log("hi"))
+// console.log(keepers)
+    // const currentUserId = user.id
+    const filteredExercises = exercisesState.filter((exerciseState) =>
+        exerciseState.user_id === user.id
+        
+    )
+
+    const displayedExercises = filteredExercises.map((exerciseState) => 
+        <Exercise 
+            key={exerciseState.id}
+            exerciseState={exerciseState}
+
+        />
+    )
+    // console.log(
+    //     exercisesState.filter((exerciseState) => exerciseState.user_id === currentUserId)
+    //     )
+// console.log(user.id)
+console.log(user.name)
+console.log(filteredExercises)
     return (
         <div className="UserCard">
             <h3>User: {user.name}</h3>
-            {/* <h4>user name: {user.name}</h4> */}
-            {/* create table for exercise info */}
-            <table className="Table">
-                <tr>
-                    <th>Name</th>
-                    <th>Muscle Group</th>
-                    <th>Weight</th>
-                    <th>Sets</th>
-                    <th>Reps</th>
-                    <th>Rest</th>
-                </tr>
-            {/* map over exercise object and populate table */}
-        {user.exercises.map((val, key) => {
-          return (
-            <tr key={key}>
-              <td>{val.name}</td>
-              <td>{val.muscle_group}</td>
-              <td>{val.weight}</td>
-              <td>{val.sets}</td>
-              <td>{val.reps}</td>
-              <td>{val.rest}</td>
-            </tr>
-          )
-        })}
-      </table>
-            {/* <ul>{exercises}</ul> */}
-            <button onClick={handleDeleteClick}>Delete User</button>
+            <h4>Exercises:</h4>
+            {/* <h5>{currentUserExercises}</h5> */}
+            <h5>{displayedExercises}</h5>
+            <button onClick={handleDeleteUserClick}>Delete User</button>
         </div>
     )
 }
 
 export default UserCard
+
