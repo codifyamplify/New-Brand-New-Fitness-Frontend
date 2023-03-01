@@ -18,7 +18,8 @@ function ExercisesList({exercisesState, onDeleteExercise}) {
 
     return (
         <div>
-            <h1>Exercises List Component</h1>
+            <h3>Existing Exercises</h3>
+            <h4>Total So Far: {exercisesState.length}</h4>
             {/* <h5>{exercisesGroup}</h5> */}
             <ul>{exercisesGroup}</ul>
         </div>

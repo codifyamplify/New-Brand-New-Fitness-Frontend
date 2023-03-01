@@ -42,7 +42,9 @@ console.log(filteredExercises)
     return (
         <div className="UserCard">
             <h3>User: {user.name}</h3>
+            <h4>Entries So Far: {filteredExercises.length}</h4>
             <h4>Exercises:</h4>
+
             {/* <h5>{currentUserExercises}</h5> */}
             <h5>{displayedExercises}</h5>
             <button onClick={handleDeleteUserClick}>Delete User</button>

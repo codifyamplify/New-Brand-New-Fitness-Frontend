@@ -20,6 +20,7 @@ function UsersList({users, onDeleteUser, onDeleteExercise, exercisesState}){
     return (
         <div>
             <h3>Existing Users</h3>
+            <h4>Total So Far: {users.length}</h4>
             {/* <UserCard users={users}/> */}
             {usersGroup}
         </div>
