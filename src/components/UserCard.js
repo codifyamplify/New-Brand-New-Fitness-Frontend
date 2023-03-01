@@ -30,7 +30,7 @@ function UserCard({user, onDeleteUser, onDeleteExercise, exercisesState}){
         <Exercise 
             key={exerciseState.id}
             exerciseState={exerciseState}
-
+            onDeleteExercise={onDeleteExercise}
         />
     )
     // console.log(

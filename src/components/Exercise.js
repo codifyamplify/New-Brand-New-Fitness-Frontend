@@ -24,8 +24,8 @@ function Exercise({exerciseState, onDeleteExercise}){
             Rest: {exerciseState.rest}
             <br></br>
             {/* User-Id: {exerciseState.user_id} */}
-            Exercise-Id: {exerciseState.id}
-            <br></br>
+            {/* Exercise-Id: {exerciseState.id} */}
+            {/* <br></br> */}
             Click Here To Delete:
             <button onClick={handleDeleteExerciseClick}>[X]</button>
         </li>
