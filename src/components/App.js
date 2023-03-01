@@ -6,23 +6,24 @@ import NewUser from './NewUser';
 import ExercisesList from './ExercisesList';
 
 function App() {
-  // create state for master users database state
+  // create STATES
   const [users, setUsers] = useState([])
-  // create exercises state for eventual individual deletion
   const [exercisesState, setExercisesState] = useState([])
-  // write fetch request to 9292 for exercises
+  
+  // fetch GETs for state
+  useEffect(() => {
+    fetch("http://localhost:9292/users")
+      .then((response) => response.json())
+      .then((users) => setUsers(users));
+    }, [])
+
   useEffect(() => {
     fetch("http://localhost:9292/exercises")
       .then((response) => response.json())
       .then((exercisesState) => setExercisesState(exercisesState));
   }, [])
 
-  // write fetch request to 9292 for users
-  useEffect(() => {
-    fetch("http://localhost:9292/users")
-      .then((response) => response.json())
-      .then((users) => setUsers(users));
-    }, [])
+  // build HANDLERs for state updates
 
     // write state setter to filter users array upon user deletion, start with a console.log
     function handleDeleteUser(id){
@@ -57,6 +58,7 @@ function App() {
       <ExercisesList 
         users={users}
         exercisesState={exercisesState}
+        onDeleteExercise={handleDeleteExercise}
       />
     </div>
   );

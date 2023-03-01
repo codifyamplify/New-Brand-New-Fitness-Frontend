@@ -1,7 +1,7 @@
 import React from "react";
 import Exercise from "./Exercise";
 
-function ExercisesList({exercisesState}) {
+function ExercisesList({exercisesState, onDeleteExercise}) {
     // console.log("in exercises list comp")
     
     // console.log("hi")
@@ -12,6 +12,8 @@ function ExercisesList({exercisesState}) {
         <Exercise 
             key={exerciseState.id}
             exerciseState={exerciseState}
+            onDeleteExercise={onDeleteExercise}
+
         />)
 
     return (

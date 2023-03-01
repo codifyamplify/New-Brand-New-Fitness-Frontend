@@ -1,9 +1,16 @@
 import React from "react";
 
-function Exercise({exerciseState}){
-    // console.log(exerciseState)
+function Exercise({exerciseState, onDeleteExercise}){
+    // write delete CLICK fetch handler for exercise component to 9292
+    function handleDeleteExerciseClick(){
+        fetch(`http://localhost:9292/exercises/${exerciseState.id}`,{
+            method: "DELETE",
+        });
+        onDeleteExercise(exerciseState.id)
+    }
+
     return (
-        <li>
+        <li className="ExerciseInstance">
             Name: {exerciseState.name}
             <br></br>
             Muscle Group: {exerciseState.muscle_group}
@@ -19,7 +26,8 @@ function Exercise({exerciseState}){
             {/* User-Id: {exerciseState.user_id} */}
             Exercise-Id: {exerciseState.id}
             <br></br>
-            Click Here To Delete : [X]
+            Click Here To Delete:
+            <button onClick={handleDeleteExerciseClick}>[X]</button>
         </li>
         // <li>Hi</li>
     )
