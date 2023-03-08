@@ -1,4 +1,5 @@
 import React from "react";
+import UpdateExercise from "./UpdateExercise";
 
 function Exercise({exerciseState, onDeleteExercise}){
     // write delete CLICK fetch handler for exercise component to 9292
@@ -28,6 +29,9 @@ function Exercise({exerciseState, onDeleteExercise}){
             {/* <br></br> */}
             Click Here To Delete:
             <button onClick={handleDeleteExerciseClick}>[X]</button>
+            Click Here to Update:
+            {/* <button onClick={handleUpdateExerciseClick}>[X]</button> */}
+            {/* <UpdateExercise /> */}
         </li>
         // <li>Hi</li>
     )
