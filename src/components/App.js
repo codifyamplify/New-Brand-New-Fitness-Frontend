@@ -4,6 +4,7 @@ import '../App.css';
 import UsersList from './UsersList';
 import NewUser from './NewUser';
 import ExercisesList from './ExercisesList';
+import NewExercise from './NewExercise';
 
 function App() {
   // create STATES
@@ -45,6 +46,10 @@ function App() {
       // console.log("im adding a new new user")
       setUsers([...users, newUserName])
     }
+
+    function handleAddExercise(newExerciseName){
+      setExercisesState([...exercisesState, newExerciseName])
+    }
     
 
 const boop = 4
@@ -65,6 +70,7 @@ const boop = 4
       {/* className="App-header" for dark blue background */}
       <h1>Brand New Fitness App</h1>
       <NewUser onAddUser={handleAddUser}/>
+      <NewExercise onAddExercise={handleAddExercise}/>
       <UsersList 
         users={users}
         onDeleteUser={handleDeleteUser}

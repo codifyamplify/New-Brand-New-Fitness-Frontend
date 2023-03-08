@@ -37,8 +37,8 @@ function UserCard({user, onDeleteUser, onDeleteExercise, exercisesState}){
     //     exercisesState.filter((exerciseState) => exerciseState.user_id === currentUserId)
     //     )
 // console.log(user.id)
-console.log(user.name)
-console.log(filteredExercises)
+// console.log(user.name)
+// console.log(filteredExercises)
     return (
         <div className="UserCard">
             <h3>User: {user.name}</h3>
