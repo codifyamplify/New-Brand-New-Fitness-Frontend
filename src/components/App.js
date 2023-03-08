@@ -52,7 +52,7 @@ function App() {
     }
     
 
-const boop = 4
+// const boop = 4
 // console.log("filter attempt")
     // EXPERIMENTS
     // console.log(
