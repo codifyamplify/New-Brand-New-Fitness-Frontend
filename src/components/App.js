@@ -71,9 +71,7 @@ function App() {
     // console.log(filteredExercises)
   return (
     <div className="App">
-      {/* className="App-header" for dark blue background */}
       <Navbar onPageChange={setPage}/>
-      {/* <h1>Brand New Fitness App</h1> */}
       <Switch>
         <Route path='/users/new'>
           <NewUser onAddUser={handleAddUser}/>
@@ -96,7 +94,7 @@ function App() {
             onDeleteExercise={handleDeleteExercise}
           />
         </Route>
-        <Route path='/'>
+        <Route exact path='/'>
           <Home />
         </Route>
         </Switch>
