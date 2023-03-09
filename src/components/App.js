@@ -1,15 +1,19 @@
 import React, {useState, useEffect} from 'react'
 import '../App.css';
 // import UserCard from './UserCard';
+import {Switch, Route} from "react-router-dom"
 import UsersList from './UsersList';
 import NewUser from './NewUser';
 import ExercisesList from './ExercisesList';
 import NewExercise from './NewExercise';
+import Navbar from './Navbar';
+import Home from './Home';
 
 function App() {
   // create STATES
   const [users, setUsers] = useState([])
   const [exercisesState, setExercisesState] = useState([])
+  const [page, setPage] = useState("/")
   
   // fetch GETs for state
   useEffect(() => {
@@ -68,20 +72,34 @@ function App() {
   return (
     <div className="App">
       {/* className="App-header" for dark blue background */}
-      <h1>Brand New Fitness App</h1>
-      <NewUser onAddUser={handleAddUser}/>
-      <NewExercise onAddExercise={handleAddExercise}/>
-      <UsersList 
-        users={users}
-        onDeleteUser={handleDeleteUser}
-        onDeleteExercise={handleDeleteExercise}
-        exercisesState={exercisesState}
-      />
-      <ExercisesList 
-        users={users}
-        exercisesState={exercisesState}
-        onDeleteExercise={handleDeleteExercise}
-      />
+      <Navbar onPageChange={setPage}/>
+      {/* <h1>Brand New Fitness App</h1> */}
+      <Switch>
+        <Route path='/users/new'>
+          <NewUser onAddUser={handleAddUser}/>
+        </Route>
+        <Route path='/exercises/new'>
+          <NewExercise onAddExercise={handleAddExercise}/>
+        </Route>
+        <Route path='/users'>
+          <UsersList 
+            users={users}
+            onDeleteUser={handleDeleteUser}
+            onDeleteExercise={handleDeleteExercise}
+            exercisesState={exercisesState}
+          />
+        </Route>
+        <Route path='/exercises'>
+          <ExercisesList 
+            users={users}
+            exercisesState={exercisesState}
+            onDeleteExercise={handleDeleteExercise}
+          />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+        </Switch>
     </div>
   );
 }

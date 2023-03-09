@@ -1,19 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Navbar({onPageChange}){
-    function handleLinkClick(e) {
-        e.preventDefault();
-        onPageChange(e.target.pathname)
-    }
+function Navbar(){
 
     return(
         <nav>
-            <a onClick={handleLinkClick} href="/">Home</a>
-            <a onClick={handleLinkClick} href="users">User List</a>
-            <a onClick={handleLinkClick} href="exercises">Exercise List</a>
-            <a onClick={handleLinkClick} href="users/new">New User</a>
-            <a onClick={handleLinkClick} href="exercises/new">New Exercise</a>
-            <a onClick={handleLinkClick} href="exercises/DYNAMINC ID/edit">Update Exercise</a>
+            <Link to="/">Home</Link>
+            <Link to="users">User List</Link>
+            <Link to="exercises">Exercise List</Link>
+            <Link to="users/new">New User</Link>
+            <Link to="exercises/new">New Exercise</Link>
+            {/* <Link exact to="exercises/DYNAMINC ID/edit">Update Exercise</Link> */}
         </nav>
     )
 }
