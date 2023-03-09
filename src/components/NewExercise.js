@@ -5,11 +5,11 @@ function NewExercise({onAddExercise}){
     const [newExerciseData, setNewExerciseData] = useState({
         name: "",
         muscle_group: "",
-        weight: "",
-        sets: "",
-        reps: "",
+        weight: 0,
+        sets: 0,
+        reps: 0,
         rest: "",
-        user_id: ""
+        user_id: 0
     })
 
     // write and abstract change handler to update newExerciseData state as user types
@@ -34,7 +34,15 @@ function NewExercise({onAddExercise}){
         .then((response) => response.json())
         .then((newExerciseData) => {
             onAddExercise(newExerciseData)
-            // setNewExerciseData("")
+            setNewExerciseData({
+                name: "",
+                muscle_group: "",
+                weight: 0,
+                sets: 0,
+                reps: 0,
+                rest: "",
+                user_id: 0        
+            })
             console.log(newExerciseData)
         })
     }
