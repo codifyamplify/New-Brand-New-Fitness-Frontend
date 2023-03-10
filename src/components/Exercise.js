@@ -1,7 +1,7 @@
 import React from "react";
 import UpdateExercise from "./UpdateExercise";
 
-function Exercise({exerciseState, onDeleteExercise}){
+function Exercise({exerciseState, onDeleteExercise, onUpdateExercise}){
     // write delete CLICK fetch handler for exercise component to 9292
     function handleDeleteExerciseClick(){
         fetch(`http://localhost:9292/exercises/${exerciseState.id}`,{
@@ -9,6 +9,11 @@ function Exercise({exerciseState, onDeleteExercise}){
         });
         onDeleteExercise(exerciseState.id)
     }
+
+    function handleUpdateExerciseClick(){
+        console.log("update me!")
+    }
+
 
     return (
         <li className="ExerciseInstance">
@@ -30,7 +35,7 @@ function Exercise({exerciseState, onDeleteExercise}){
             Click Here To Delete:
             <button onClick={handleDeleteExerciseClick}>[X]</button>
             Click Here to Update:
-            {/* <button onClick={handleUpdateExerciseClick}>[X]</button> */}
+            <button onClick={onUpdateExercise}>[X]</button>
             {/* <UpdateExercise /> */}
         </li>
         // <li>Hi</li>

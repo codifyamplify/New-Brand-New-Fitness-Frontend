@@ -1,7 +1,7 @@
 import React from "react";
 import Exercise from "./Exercise";
 
-function ExercisesList({exercisesState, onDeleteExercise}) {
+function ExercisesList({exercisesState, onDeleteExercise, onUpdateExercise}) {
     // console.log("in exercises list comp")
     
     // console.log("hi")
@@ -13,7 +13,7 @@ function ExercisesList({exercisesState, onDeleteExercise}) {
             key={exerciseState.id}
             exerciseState={exerciseState}
             onDeleteExercise={onDeleteExercise}
-
+            onUpdateExercise={onUpdateExercise}
         />)
 
     return (

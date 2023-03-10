@@ -54,6 +54,10 @@ function App() {
     function handleAddExercise(newExerciseName){
       setExercisesState([...exercisesState, newExerciseName])
     }
+
+    function handleUpdateExercise(){
+      console.log("upadate me in app!")
+    }
     
 
 // const boop = 4
@@ -92,6 +96,7 @@ function App() {
             users={users}
             exercisesState={exercisesState}
             onDeleteExercise={handleDeleteExercise}
+            onUpdateExercise={handleUpdateExercise}
           />
         </Route>
         <Route exact path='/'>
