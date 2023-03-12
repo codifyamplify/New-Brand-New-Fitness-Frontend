@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import '../App.css';
-// import UserCard from './UserCard';
 import {Switch, Route} from "react-router-dom"
 import UsersList from './UsersList';
 import NewUser from './NewUser';
@@ -8,12 +7,13 @@ import ExercisesList from './ExercisesList';
 import NewExercise from './NewExercise';
 import Navbar from './Navbar';
 import Home from './Home';
+import UpdateExercise from './UpdateExercise';
+import Exercise from './Exercise';
 
 function App() {
   // create STATES
   const [users, setUsers] = useState([])
   const [exercisesState, setExercisesState] = useState([])
-  const [page, setPage] = useState("/")
   
   // fetch GETs for state
   useEffect(() => {
@@ -60,22 +60,9 @@ function App() {
     }
     
 
-// const boop = 4
-// console.log("filter attempt")
-    // EXPERIMENTS
-    // console.log(
-    //   exercisesState.filter((exerciseState) => exerciseState.user_id === boop)
-    //   )
-
-    // const filteredExercises = exercisesState.filter((exerciseState) =>
-    //   exerciseState.user_id === boop
-    // )
-
-    // console.log("filter in app")
-    // console.log(filteredExercises)
   return (
     <div className="App">
-      <Navbar onPageChange={setPage}/>
+      <Navbar />
       <Switch>
         <Route path='/users/new'>
           <NewUser onAddUser={handleAddUser}/>
@@ -91,11 +78,17 @@ function App() {
             exercisesState={exercisesState}
           />
         </Route>
-        <Route path='/exercises'>
+        <Route exact path='/exercises'>
           <ExercisesList 
             users={users}
             exercisesState={exercisesState}
             onDeleteExercise={handleDeleteExercise}
+            onUpdateExercise={handleUpdateExercise}
+          />
+        </Route>
+        <Route path="/exercises/:id">
+          <UpdateExercise 
+            exercisesState={exercisesState}
             onUpdateExercise={handleUpdateExercise}
           />
         </Route>
