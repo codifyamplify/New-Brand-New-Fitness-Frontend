@@ -7,7 +7,6 @@ import ExercisesList from './ExercisesList';
 import NewExercise from './NewExercise';
 import Navbar from './Navbar';
 import Home from './Home';
-import UpdateExercise from './UpdateExercise';
 import ExerciseCard from './ExerciseCard';
 import UpdateX from './UpdateX';
 import ExerciseDetails from './ExerciseDetails';
@@ -57,15 +56,13 @@ function App() {
       setExercises([...exercises, newExerciseName])
     }
 
-    function handleUpdateExercise(){
-      console.log("upadate me in app!")
+
+
+    const handleUpdateExercise = (updatedExercise) => {
+      const updatedExercises = exercises.map((exercise) => (exercise.id === updatedExercise.id ? updatedExercise : exercise))
+      setExercises(updatedExercises);
+      console.log(updatedExercises)
     }
-
-
-    // const handleUpdateExercise = (updatedExercise) => {
-    //   const updatedExercises = exercises.map((exercise) => (exercise.id === updatedExercise.id ? updatedexercise : exercise))
-    //   setExercises(updatedExercises);
-    // }
     
 
   return (
@@ -94,18 +91,15 @@ function App() {
             users={users}
             exercises={exercises}
             onDeleteExercise={handleDeleteExercise}
-            onUpdateExercise={handleUpdateExercise}
+            // handleUpdateExercise={handleUpdateExercise}
           />
         </Route>
 
         <Route path="/exercises/:id/edit">
-          {/* <UpdateExercise 
-            exercises={exercises}
-            onUpdateExercise={handleUpdateExercise}
-          /> */}
           <UpdateX
             exercises={exercises}
-            onUpdateExercise={handleUpdateExercise}
+            users={users}
+            handleUpdateExercise={handleUpdateExercise}
           />
         </Route>
 
@@ -121,7 +115,7 @@ function App() {
             users={users}
             exercises={exercises}
             onDeleteExercise={handleDeleteExercise}
-            onUpdateExercise={handleUpdateExercise}
+            handleUpdateExercise={handleUpdateExercise}
           />
         </Route>
 
