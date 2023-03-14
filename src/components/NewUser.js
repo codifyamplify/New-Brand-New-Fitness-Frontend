@@ -1,6 +1,8 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 
 function NewUser({onAddUser}){
+    const history = useHistory()
     // console.log(users)
     // create form state here
     const [newUserName, setNewUserName] = useState("")
@@ -23,6 +25,8 @@ function NewUser({onAddUser}){
             onAddUser(newUserName)
             setNewUserName("")
             console.log(newUserName)
+            history.push("/users")
+
             
         });
     }

@@ -44,7 +44,7 @@ console.log(current)
       .then((updatedExercise) => {
           console.log("exercise after update", updatedExercise)
           handleUpdateExercise(updatedExercise)
-          history.push("/exercises")
+          history.push(`/exercises/${id}`)
           // console.log(updatedExercise.json())
     })
   }

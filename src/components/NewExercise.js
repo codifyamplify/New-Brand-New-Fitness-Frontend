@@ -45,7 +45,7 @@ function NewExercise({onAddExercise}){
                 user_id: 0        
             })
             console.log(newExerciseData)
-            // history.push(`/exercises/${id}`)
+            // history.push("/exercises/")
         })
     }
     return(
