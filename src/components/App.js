@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import '../App.css';
-import {Switch, Route} from "react-router-dom"
-import UsersList from './UsersList';
-import NewUser from './NewUser';
-import ExercisesList from './ExercisesList';
-import NewExercise from './NewExercise';
-import Navbar from './Navbar';
 import Home from './Home';
+import Navbar from './Navbar';
+import UsersList from './UsersList';
+import ExercisesList from './ExercisesList';
+import NewUser from './NewUser';
+import NewExercise from './NewExercise';
 import ExerciseCard from './ExerciseCard';
-import UpdateX from './UpdateX';
 import ExerciseDetails from './ExerciseDetails';
+import UpdateExercise from './UpdateExercise';
+import {Switch, Route} from "react-router-dom"
 
 function App() {
   // create STATES
@@ -96,7 +96,7 @@ function App() {
         </Route>
 
         <Route path="/exercises/:id/edit">
-          <UpdateX
+          <UpdateExercise
             exercises={exercises}
             users={users}
             handleUpdateExercise={handleUpdateExercise}
