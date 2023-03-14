@@ -1,8 +1,6 @@
-import React, {useState, useHistory} from 'react'
+import React, {useState} from 'react'
 
 function NewExercise({onAddExercise}){
-    // create new exercise state
-    // const history = useHistory()
     const [newExerciseData, setNewExerciseData] = useState({
         name: "",
         muscle_group: "",
@@ -13,18 +11,14 @@ function NewExercise({onAddExercise}){
         user_id: 0
     })
 
-    // write and abstract change handler to update newExerciseData state as user types
     function handleChange(e){
         setNewExerciseData({
             ...newExerciseData, [e.target.id]: e.target.value
         });
-        console.log(newExerciseData)
     }
 
-    // write handle submit function and include a post fetch to 9292/exercises
     function handleSubmit(e){
         e.preventDefault();
-
         fetch("http://localhost:9292/exercises", {
             method: "POST",
             headers: {
@@ -45,25 +39,17 @@ function NewExercise({onAddExercise}){
                 user_id: 0        
             })
             console.log(newExerciseData)
-            // history.push("/exercises/")
         })
     }
     return(
         <div>
             <h3>Add New Exercise</h3>
             <form onSubmit={handleSubmit}>
-                {/* <input 
-                    type="text"
-                    name="newExerciseData"
-                    value={newExerciseData}
-                    onChange={(e) => setNewExerciseData(e.target.value)}
-                /> */}
                 <label>
                     Name:
                 <input
                     type="text"
                     id="name"
-                    // defaultValue="name"
                     value={newExerciseData.name}
                     onChange={handleChange}
                 />

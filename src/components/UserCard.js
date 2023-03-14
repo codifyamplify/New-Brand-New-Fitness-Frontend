@@ -2,18 +2,15 @@ import React from "react";
 import Exercise from "./ExerciseCard";
 
 function UserCard({user, onDeleteUser, onDeleteExercise, exercises}){
-    // write delete user handler - this will be the fetch request NOT the state update
     function handleDeleteUserClick(){
         fetch(`http://localhost:9292/users/${user.id}`, {
             method: "DELETE",
         });
         onDeleteUser(user.id)
     }
-
     const filteredExercises = exercises.filter((exercise) =>
         exercise.user_id === user.id    
     )
-
     const displayedExercises = filteredExercises.map((exercise) => 
         <Exercise 
             key={exercise.id}
@@ -21,7 +18,6 @@ function UserCard({user, onDeleteUser, onDeleteExercise, exercises}){
             onDeleteExercise={onDeleteExercise}
         />
     )
-
     return (
         <div className="UserCard">
             <h3>User: {user.name}</h3>

@@ -12,59 +12,39 @@ import UpdateExercise from './UpdateExercise';
 import {Switch, Route} from "react-router-dom"
 
 function App() {
-  // create STATES
   const [users, setUsers] = useState([])
   const [exercises, setExercises] = useState([])
   
-  // fetch GETs for state
   useEffect(() => {
     fetch("http://localhost:9292/users")
       .then((response) => response.json())
       .then((users) => setUsers(users));
     }, [])
-
   useEffect(() => {
     fetch("http://localhost:9292/exercises")
       .then((response) => response.json())
       .then((exercises) => setExercises(exercises));
   }, [])
 
-  // build HANDLERs for state updates
-
-    // write state setter to filter users array upon user deletion, start with a console.log
     function handleDeleteUser(id){
       console.log(`I am in App, in handleDeleteUser, with an id of ${id}`)
-      // write actual state setter, filter users state
       const usersAfterDelete = users.filter((user) => user.id !== id)
       setUsers(usersAfterDelete)
     }
-
     function handleDeleteExercise(id){
-      // setExercises(exercisesAfterDelete)
-      console.log(`I am in App.js, in handleDeleteExercise, with an ID of ${id}`)
-      // write exercises filtering then set state
       const exercisesAfterDelete = exercises.filter((exercise) => exercise.id !== id)
       setExercises(exercisesAfterDelete)
     }
-
     function handleAddUser(newUserName){
-      // console.log("im adding a new new user")
       setUsers([...users, newUserName])
     }
-
     function handleAddExercise(newExerciseName){
       setExercises([...exercises, newExerciseName])
     }
-
-
-
     const handleUpdateExercise = (updatedExercise) => {
       const updatedExercises = exercises.map((exercise) => (exercise.id === updatedExercise.id ? updatedExercise : exercise))
       setExercises(updatedExercises);
-      console.log(updatedExercises)
     }
-    
-
   return (
     <div className="App">
       <Navbar />
@@ -91,7 +71,6 @@ function App() {
             users={users}
             exercises={exercises}
             onDeleteExercise={handleDeleteExercise}
-            // handleUpdateExercise={handleUpdateExercise}
           />
         </Route>
 
