@@ -1,5 +1,5 @@
 import React from "react";
-import Exercise from "./Exercise";
+import Exercise from "./ExerciseCard";
 
 function UserCard({user, onDeleteUser, onDeleteExercise, exercises}){
     // write delete user handler - this will be the fetch request NOT the state update

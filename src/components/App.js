@@ -8,8 +8,9 @@ import NewExercise from './NewExercise';
 import Navbar from './Navbar';
 import Home from './Home';
 import UpdateExercise from './UpdateExercise';
-import Exercise from './Exercise';
+import ExerciseCard from './ExerciseCard';
 import UpdateX from './UpdateX';
+import ExerciseDetails from './ExerciseDetails';
 
 function App() {
   // create STATES
@@ -74,9 +75,11 @@ function App() {
         <Route path='/users/new'>
           <NewUser onAddUser={handleAddUser}/>
         </Route>
+
         <Route path='/exercises/new'>
           <NewExercise onAddExercise={handleAddExercise}/>
         </Route>
+
         <Route path='/users'>
           <UsersList 
             users={users}
@@ -85,16 +88,9 @@ function App() {
             exercises={exercises}
           />
         </Route>
+
         <Route exact path='/exercises'>
           <ExercisesList 
-            users={users}
-            exercises={exercises}
-            onDeleteExercise={handleDeleteExercise}
-            onUpdateExercise={handleUpdateExercise}
-          />
-        </Route>
-        <Route exact path='/exercises/:id'>
-          <Exercise 
             users={users}
             exercises={exercises}
             onDeleteExercise={handleDeleteExercise}
@@ -112,9 +108,29 @@ function App() {
             onUpdateExercise={handleUpdateExercise}
           />
         </Route>
+
+
+        <Route path="/exercises/:id">
+          <ExerciseDetails
+            exercises={exercises}
+          />
+        </Route>
+
+        <Route path='/exercises/:id'>
+          <ExerciseCard 
+            users={users}
+            exercises={exercises}
+            onDeleteExercise={handleDeleteExercise}
+            onUpdateExercise={handleUpdateExercise}
+          />
+        </Route>
+
+
+
         <Route exact path='/'>
           <Home />
         </Route>
+
         </Switch>
     </div>
   );

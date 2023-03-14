@@ -3,7 +3,7 @@ import UpdateExercise from "./UpdateExercise";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-function Exercise({exercise, onDeleteExercise, onUpdateExercise}){
+function ExerciseCard({exercise, onDeleteExercise, onUpdateExercise}){
     const params = useParams()
     // write delete CLICK fetch handler for exercise component to 9292
     function handleDeleteExerciseClick(){
@@ -21,6 +21,7 @@ function Exercise({exercise, onDeleteExercise, onUpdateExercise}){
         console.log(exercise.id)
     }
 
+    // console.log(exercise)
     return (
         <li className="ExerciseInstance">
             Name: {exercise.name}
@@ -51,4 +52,4 @@ function Exercise({exercise, onDeleteExercise, onUpdateExercise}){
     )
 }
 
-export default Exercise
+export default ExerciseCard

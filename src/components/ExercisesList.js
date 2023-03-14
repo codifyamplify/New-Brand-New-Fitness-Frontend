@@ -1,5 +1,5 @@
 import React from "react";
-import Exercise from "./Exercise";
+import ExerciseCard from "./ExerciseCard";
 
 function ExercisesList({exercises, onDeleteExercise, onUpdateExercise}) {
     // console.log("in exercises list comp")
@@ -9,7 +9,7 @@ function ExercisesList({exercises, onDeleteExercise, onUpdateExercise}) {
     //     <Exercise />
     // )
     const displayedExercises = exercises.map(exercise => 
-        <Exercise 
+        <ExerciseCard 
             key={exercise.id}
             exercise={exercise}
             onDeleteExercise={onDeleteExercise}

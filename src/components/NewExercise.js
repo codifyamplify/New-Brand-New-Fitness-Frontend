@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useHistory} from 'react'
 
 function NewExercise({onAddExercise}){
     // create new exercise state
+    // const history = useHistory()
     const [newExerciseData, setNewExerciseData] = useState({
         name: "",
         muscle_group: "",
@@ -44,6 +45,7 @@ function NewExercise({onAddExercise}){
                 user_id: 0        
             })
             console.log(newExerciseData)
+            // history.push(`/exercises/${id}`)
         })
     }
     return(
@@ -66,6 +68,7 @@ function NewExercise({onAddExercise}){
                     onChange={handleChange}
                 />
                 </label>
+                <br></br>
                 <label>
                     Muscle Group:
                 <input
@@ -74,7 +77,7 @@ function NewExercise({onAddExercise}){
                     value={newExerciseData.muscle_group}
                     onChange={handleChange}
                 />
-                </label>
+                </label><br></br>
                 <label>
                     Weight:
                 <input
@@ -83,7 +86,7 @@ function NewExercise({onAddExercise}){
                     value={newExerciseData.weight}
                     onChange={handleChange}
                 />
-                </label>
+                </label><br></br>
                 <label>
                     Sets:
                 <input
@@ -92,7 +95,7 @@ function NewExercise({onAddExercise}){
                     value={newExerciseData.sets}
                     onChange={handleChange}
                 />
-                </label>
+                </label><br></br>
                 <label>
                     Reps:
                 <input
@@ -101,7 +104,7 @@ function NewExercise({onAddExercise}){
                     value={newExerciseData.reps}
                     onChange={handleChange}
                 />
-                </label>
+                </label><br></br>
                 <label>
                     Rest:
                 <input
@@ -110,7 +113,7 @@ function NewExercise({onAddExercise}){
                     value={newExerciseData.rest}
                     onChange={handleChange}
                 />
-                </label>
+                </label><br></br>
                 <label>
                     User Id:
                 <input
@@ -119,7 +122,7 @@ function NewExercise({onAddExercise}){
                     value={newExerciseData.user_id}
                     onChange={handleChange}
                 />
-                </label>
+                </label><br></br>
                 <button type="submit">Submit New Exercise</button>
             </form>
         </div>
