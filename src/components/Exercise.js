@@ -3,48 +3,48 @@ import UpdateExercise from "./UpdateExercise";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-function Exercise({exerciseState, onDeleteExercise, onUpdateExercise}){
+function Exercise({exercise, onDeleteExercise, onUpdateExercise}){
     const params = useParams()
     // write delete CLICK fetch handler for exercise component to 9292
     function handleDeleteExerciseClick(){
-        fetch(`http://localhost:9292/exercises/${exerciseState.id}`,{
+        fetch(`http://localhost:9292/exercises/${exercise.id}`,{
             method: "DELETE",
         });
-        onDeleteExercise(exerciseState.id)
+        onDeleteExercise(exercise.id)
     }
 
     function handleUpdateExerciseClick(){
-        console.log(exerciseState.id)
+        console.log(exercise.id)
     }
 
     function clickMyId(){
-        console.log(exerciseState.id)
+        console.log(exercise.id)
     }
 
     return (
         <li className="ExerciseInstance">
-            Name: {exerciseState.name}
+            Name: {exercise.name}
             <br></br>
-            Muscle Group: {exerciseState.muscle_group}
+            Muscle Group: {exercise.muscle_group}
             <br></br>
-            Weight: {exerciseState.weight}
+            Weight: {exercise.weight}
             <br></br>
-            Sets: {exerciseState.sets}
+            Sets: {exercise.sets}
             <br></br>
-            Reps: {exerciseState.reps}
+            Reps: {exercise.reps}
             <br></br>
-            Rest: {exerciseState.rest}
+            Rest: {exercise.rest}
             <br></br>
-            {/* User-Id: {exerciseState.user_id} */}
-            {/* Exercise-Id: {exerciseState.id} */}
-            {/* <br></br> */}
+            {/* User-Id: {exercise.user_id} */}
+            Exercise-Id: {exercise.id}
+            <br></br>
             Click Here To Delete:
             <button onClick={handleDeleteExerciseClick}>[X]</button>
             Click Here to Update:
-            <button onClick={clickMyId}>[my id]</button>
+            {/* <button onClick={clickMyId}>[my id]</button> */}
             {/* experiment with making a react button into a Link */}
-            <Link to={`/exercises/${exerciseState.id}/edit`}>
-                <button>Go to Edit Man!</button>
+            <Link to={`/exercises/${exercise.id}/edit`}>
+                <button >Edit This Exercise!</button>
             </Link>
         </li>
         // <li>Hi</li>

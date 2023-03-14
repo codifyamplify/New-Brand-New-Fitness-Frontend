@@ -1,7 +1,7 @@
 import React from "react";
 import UserCard from "./UserCard";
 
-function UsersList({users, onDeleteUser, onDeleteExercise, exercisesState}){
+function UsersList({users, onDeleteUser, onDeleteExercise, exercises}){
     // console.log("from list")
     // console.log(users)
     // create variable with value of map of users
@@ -14,7 +14,7 @@ function UsersList({users, onDeleteUser, onDeleteExercise, exercisesState}){
             key={user.id}
             user={user}
             onDeleteUser={onDeleteUser}
-            exercisesState={exercisesState}
+            exercises={exercises}
             onDeleteExercise={onDeleteExercise}
         />)
     return (

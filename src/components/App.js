@@ -9,11 +9,12 @@ import Navbar from './Navbar';
 import Home from './Home';
 import UpdateExercise from './UpdateExercise';
 import Exercise from './Exercise';
+import UpdateX from './UpdateX';
 
 function App() {
   // create STATES
   const [users, setUsers] = useState([])
-  const [exercisesState, setExercisesState] = useState([])
+  const [exercises, setExercises] = useState([])
   
   // fetch GETs for state
   useEffect(() => {
@@ -25,7 +26,7 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/exercises")
       .then((response) => response.json())
-      .then((exercisesState) => setExercisesState(exercisesState));
+      .then((exercises) => setExercises(exercises));
   }, [])
 
   // build HANDLERs for state updates
@@ -39,11 +40,11 @@ function App() {
     }
 
     function handleDeleteExercise(id){
-      // setExercisesState(exercisesAfterDelete)
+      // setExercises(exercisesAfterDelete)
       console.log(`I am in App.js, in handleDeleteExercise, with an ID of ${id}`)
       // write exercises filtering then set state
-      const exercisesAfterDelete = exercisesState.filter((exerciseState) => exerciseState.id !== id)
-      setExercisesState(exercisesAfterDelete)
+      const exercisesAfterDelete = exercises.filter((exercise) => exercise.id !== id)
+      setExercises(exercisesAfterDelete)
     }
 
     function handleAddUser(newUserName){
@@ -52,12 +53,18 @@ function App() {
     }
 
     function handleAddExercise(newExerciseName){
-      setExercisesState([...exercisesState, newExerciseName])
+      setExercises([...exercises, newExerciseName])
     }
 
     function handleUpdateExercise(){
       console.log("upadate me in app!")
     }
+
+
+    // const handleUpdateExercise = (updatedExercise) => {
+    //   const updatedExercises = exercises.map((exercise) => (exercise.id === updatedExercise.id ? updatedexercise : exercise))
+    //   setExercises(updatedExercises);
+    // }
     
 
   return (
@@ -75,20 +82,33 @@ function App() {
             users={users}
             onDeleteUser={handleDeleteUser}
             onDeleteExercise={handleDeleteExercise}
-            exercisesState={exercisesState}
+            exercises={exercises}
           />
         </Route>
         <Route exact path='/exercises'>
           <ExercisesList 
             users={users}
-            exercisesState={exercisesState}
+            exercises={exercises}
             onDeleteExercise={handleDeleteExercise}
             onUpdateExercise={handleUpdateExercise}
           />
         </Route>
-        <Route path="/exercises/:id">
-          <UpdateExercise 
-            exercisesState={exercisesState}
+        <Route exact path='/exercises/:id'>
+          <Exercise 
+            users={users}
+            exercises={exercises}
+            onDeleteExercise={handleDeleteExercise}
+            onUpdateExercise={handleUpdateExercise}
+          />
+        </Route>
+
+        <Route path="/exercises/:id/edit">
+          {/* <UpdateExercise 
+            exercises={exercises}
+            onUpdateExercise={handleUpdateExercise}
+          /> */}
+          <UpdateX
+            exercises={exercises}
             onUpdateExercise={handleUpdateExercise}
           />
         </Route>

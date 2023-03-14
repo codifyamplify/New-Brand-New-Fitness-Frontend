@@ -1,50 +1,38 @@
-// import React from "react";
-// import { useParams } from "react-router-dom";
-
-// function UpdateExercise({exercisesState}){
-//     // const params = useParams()
-//     // const current = exercisesState
-//     const params = useParams()
-//     return(
-//         <div>
-//             <h3>Update Exercise component</h3>
-//             <h5>my id is</h5>
-//             {/* <h5>my name is {exercisesState.id}</h5> */}
-//         </div>
-//     )
-// }
-
-// export default UpdateExercise
 import React, {useState} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
-function UpdateExercise({onUpdateExercise}){
-    const params = useParams()
-    // create new exercise state
-    console.log(params)
+function UpdateExercise({exercises, onUpdateExercise}){
+    const {id} = useParams()
+    const history = useHistory()
+    const current = exercises.find((exercise) => exercise.id === parseInt(id))
+    console.log("my id is ", id, current)
+
+
     const [UpdateExerciseData, setUpdateExerciseData] = useState({
-        name: "",
-        muscle_group: "",
-        weight: 0,
-        sets: 0,
-        reps: 0,
-        rest: "",
-        user_id: 0
+        // // name: current.name,
+        // muscle_group: current.muscle_group,
+        // weight: current.weight,
+        // sets: current.sets,
+        // reps:current.reps,
+        // rest: current.rest,
+        // user_id: current.user_id
     })
+    // const UpdateExerciseData = 
 
 //     // write and abstract change handler to update UpdateExerciseData state as user types
-    function handleChange(e){
-        setUpdateExerciseData({
-            ...UpdateExerciseData, [e.target.id]: e.target.value
-        });
-        console.log(UpdateExerciseData)
-    }
+function handleChange(e){
+    setUpdateExerciseData({
+        ...UpdateExerciseData, [e.target.id]: e.target.value
+    });
+    // console.log(UpdateExerciseData)
+}
 
 //     // write handle submit function and include a post fetch to 9292/exercises
     function handleSubmit(e){
         e.preventDefault();
 
-        fetch(`http://localhost:9292/exercises/${params.id}`, {
+
+        fetch(`http://localhost:9292/exercises/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",
@@ -53,29 +41,31 @@ function UpdateExercise({onUpdateExercise}){
         })
         .then((response) => response.json())
         .then((UpdateExerciseData) => {
+            
             onUpdateExercise(UpdateExerciseData)
+            history.push(`/exercises/${id}`)
             // setUpdateExerciseData("")
-            console.log(UpdateExerciseData)
+            console.log(UpdateExerciseData, "strings")
         })
     }
-
+// debugger
     return(
         <div>
-            <h3> Update Exercise</h3>
+            <h3> Update Exercise </h3>
             <form onSubmit={handleSubmit}>
-                <input 
+                {/* <input 
                     type="text"
                     name="UpdateExerciseData"
                     value={UpdateExerciseData}
                     onChange={(e) => setUpdateExerciseData(e.target.value)}
-                />
+                /> */}
                 <label>
                     Name:
                 <input
                     type="text"
-                    id="edit_name"
+                    id="name"
                     // defaultValue="name"
-                    defaultValue={UpdateExerciseData.name}
+                    // defaultValue={current.name}
                     onChange={handleChange}
                 />
                 </label>
@@ -84,8 +74,8 @@ function UpdateExercise({onUpdateExercise}){
                     Muscle Group:
                 <input
                     type="text"
-                    id="edit_muscle_group"
-                    value={UpdateExerciseData.muscle_group}
+                    id="muscle_group"
+                    // defaultValue={current.muscle_group}
                     onChange={handleChange}
                 />
                 </label>
@@ -94,8 +84,8 @@ function UpdateExercise({onUpdateExercise}){
                     Weight:
                 <input
                     type="integer"
-                    id="edit_weight"
-                    value={UpdateExerciseData.weight}
+                    id="weight"
+                    // defaultValue={current.weight}
                     onChange={handleChange}
                 />
                 </label>
@@ -104,8 +94,8 @@ function UpdateExercise({onUpdateExercise}){
                     Sets:
                 <input
                     type="integer"
-                    id="edit_sets"
-                    value={UpdateExerciseData.sets}
+                    id="sets"
+                    // defaultValue={current.sets}
                     onChange={handleChange}
                 />
                 </label>
@@ -114,8 +104,8 @@ function UpdateExercise({onUpdateExercise}){
                     Reps:
                 <input
                     type="integer"
-                    id="edit_reps"
-                    value={UpdateExerciseData.reps}
+                    id="reps"
+                    // defaultValue={current.reps}
                     onChange={handleChange}
                 />
                 </label>
@@ -124,8 +114,8 @@ function UpdateExercise({onUpdateExercise}){
                     Rest:
                 <input
                     type="text"
-                    id="edit_rest"
-                    value={UpdateExerciseData.rest}
+                    id="rest"
+                    // defaultValue={current.rest}
                     onChange={handleChange}
                 />
                 </label>
@@ -134,8 +124,8 @@ function UpdateExercise({onUpdateExercise}){
                     User Id:
                 <input
                     type="integer"
-                    id="edit_user_id"
-                    value={UpdateExerciseData.user_id}
+                    id="user_id"
+                    // defaultValue={current.user_id}
                     onChange={handleChange}
                 />
                 </label>
@@ -147,3 +137,26 @@ function UpdateExercise({onUpdateExercise}){
 }
 
 export default UpdateExercise
+
+
+
+// ==========================================
+
+
+// import React from "react";
+// import { useParams } from "react-router-dom";
+
+// function UpdateExercise({exercises}){
+//     // const params = useParams()
+//     // const current = exercises
+//     const params = useParams()
+//     return(
+//         <div>
+//             <h3>Update Exercise component</h3>
+//             <h5>my id is</h5>
+//             {/* <h5>my name is {exercises.id}</h5> */}
+//         </div>
+//     )
+// }
+
+// export default UpdateExercise

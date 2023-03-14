@@ -1,17 +1,17 @@
 import React from "react";
 import Exercise from "./Exercise";
 
-function ExercisesList({exercisesState, onDeleteExercise, onUpdateExercise}) {
+function ExercisesList({exercises, onDeleteExercise, onUpdateExercise}) {
     // console.log("in exercises list comp")
     
     // console.log("hi")
-    // const exercisesGroup = users.exercises.map((exercise) =>
+    // const displayedExercises = users.exercises.map((exercise) =>
     //     <Exercise />
     // )
-    const exercisesGroup = exercisesState.map(exerciseState => 
+    const displayedExercises = exercises.map(exercise => 
         <Exercise 
-            key={exerciseState.id}
-            exerciseState={exerciseState}
+            key={exercise.id}
+            exercise={exercise}
             onDeleteExercise={onDeleteExercise}
             onUpdateExercise={onUpdateExercise}
         />)
@@ -19,9 +19,9 @@ function ExercisesList({exercisesState, onDeleteExercise, onUpdateExercise}) {
     return (
         <div>
             <h3>Existing Exercises</h3>
-            <h4>Total So Far: {exercisesState.length}</h4>
-            {/* <h5>{exercisesGroup}</h5> */}
-            <ul>{exercisesGroup}</ul>
+            <h4>Total So Far: {exercises.length}</h4>
+            {/* <h5>{displayedExercises}</h5> */}
+            <ul>{displayedExercises}</ul>
         </div>
     )
 }
