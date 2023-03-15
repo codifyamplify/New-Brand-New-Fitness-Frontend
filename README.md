@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Brand New Fitness App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Brand New Fitness App aims to provide a simple single page app that can list, persist, delete and update the exercise information of users.
 
-In the project directory, you can run:
+## Goals
 
-### `npm start`
+The goal of Brand New Fitness App is to serve as practice for creating both a backend and a frontend from scratch to get experiencing creating both ends of the process and making them work togehter intentionally. Full CRUD (create, read, update, delete) functionality between the front and backend working together is the primary goal.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Brand New Fitness App consists of a frontend and a backend, hosted in two separate GitHub respositories.
 
-### `npm test`
+Frontend GitHub Repo link: git@github.com:codifyamplify/new-brand-new-fitness-frontend.git
+Backend Github Repo Link: git@github.com:codifyamplify/Brand-New-Fitness-App.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A new user can either copy these links and clone them to their local machine, each in their separate repositories, or they can click the < > Code button on the GitHub repo page and copy the SSH link to use for cloning on their local machine.
 
-### `npm run build`
+After both repositories are cloned, start the server for each end. Make sure you are in the directory your frontend was cloned to when you start your frontend server (npm start). Make sure you are in the director your backend was cloned to when you start your backend server (rake server). These commands can be run from the terminal.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Brand New Fitness App uses npm, React, and react-router-dom v5 for the frontend. While in the frontend directory runnning npm install should install all dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When ready, run npm start. Your frontend is up and running.
 
-### `npm run eject`
+Brand New Fitness App uses ruby, Active-Record, and Sinatra for the backend. While in the backend directory running bundle install should install all dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+bundle install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+When ready, run rake server. Your backend is up and running.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Features
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Brand New Fitness App boasts an astounding full CRUD functionality.
 
-## Learn More
+Existing users and exercises can be viewed from the Existing Users list and the Existing Exercises list.
+Each user card features a Delete User button which will remove that user card from the DOM as well as the database.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Everywhere you see an exercise listed it will offer a delete button (which will do what you will expect, on both the front and the backend) as well as an Edit This Exercise button.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The latter will take you to a new component, an edit form with that exercise's existing data points pre-populated, and allow you to update them on form submission.
 
-### Code Splitting
+Create, Read, Update, and Delete are all presented and accounted for.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Links
 
-### Analyzing the Bundle Size
+A brief video demonstraion of this app:
+https://youtu.be/lRs9oVNx65M
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Frontend: git@github.com:codifyamplify/new-brand-new-fitness-frontend.git
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Backend: git@github.com:codifyamplify/Brand-New-Fitness-App.git
